@@ -16,7 +16,7 @@ cogFile = "cogLevelSystem"
 # List of packages required by the addon
 packageDependencies = [
     "py-cord",
-    "mysql-connector-python",
+    "mysql-connector-python"
 ]
 
 # List of addons required by the addon
