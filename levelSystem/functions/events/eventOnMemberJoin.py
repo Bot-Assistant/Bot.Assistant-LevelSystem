@@ -1,4 +1,4 @@
-import addons.levelSystem.handlers.handlerUser as handlerUser
+import addons.LevelSystem.handlers.handlerUser as handlerUser
 
 # Add user to the database from the event
 async def addUser(member):

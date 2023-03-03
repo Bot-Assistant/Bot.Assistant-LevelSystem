@@ -1,4 +1,4 @@
-import addons.levelSystem.handlers.handlerReward as handlerReward
+import addons.LevelSystem.handlers.handlerReward as handlerReward
 
 from settings.settingColors import *
 

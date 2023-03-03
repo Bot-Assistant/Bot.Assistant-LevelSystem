@@ -1,4 +1,4 @@
-import addons.levelSystem.handlers.handlerUser as handlerUser
+import addons.LevelSystem.handlers.handlerUser as handlerUser
 
 from settings.settingColors import *
 

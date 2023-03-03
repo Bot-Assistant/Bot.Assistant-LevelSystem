@@ -1,4 +1,4 @@
-import addons.levelSystem.handlers.handlerSettings as handlerSettings
+import addons.LevelSystem.handlers.handlerSettings as handlerSettings
 
 async def setChannel(ctx, channel):
     handlerSettings.setChannelID(ctx.guild.id, channel.id)

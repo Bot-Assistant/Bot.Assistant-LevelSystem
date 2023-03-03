@@ -1,6 +1,6 @@
 # Addons imports
-import addons.levelSystem.handlers.handlerUser as handlerUser
-import addons.levelSystem.handlers.handlerSettings as handlerSettings
+import addons.LevelSystem.handlers.handlerUser as handlerUser
+import addons.LevelSystem.handlers.handlerSettings as handlerSettings
 
 # Init BotAssistant
 import services.serviceBot as serviceBot

@@ -1,4 +1,4 @@
-import addons.levelSystem.handlers.handlerSettings as handlerSettings
+import addons.LevelSystem.handlers.handlerSettings as handlerSettings
 
 async def addServer(guild):
     server = handlerSettings.getServer(guild.id)

@@ -18,24 +18,24 @@ bot = serviceBot.classBot.getBot()
 
 
 # 𝗔𝗗𝗗𝗢𝗡
-import addons.levelSystem.init as init
+import addons.LevelSystem.init as init
 # Handlers
-import addons.levelSystem.handlers.handlerDatabaseInit as handlerDatabaseInit
-import addons.levelSystem.handlers.handlerReward as handlerReward
+import addons.LevelSystem.handlers.handlerDatabaseInit as handlerDatabaseInit
+import addons.LevelSystem.handlers.handlerReward as handlerReward
 # Commands
-import addons.levelSystem.functions.commands.commandLevel as commandLevel
-import addons.levelSystem.functions.commands.commandRewardCreate as commandRewardCreate
-import addons.levelSystem.functions.commands.commandRewardList as commandRewardList
-import addons.levelSystem.functions.commands.commandRewardRemove as commandRewardRemove
-import addons.levelSystem.functions.commands.commandSettingChannel as commandSettingChannel
+import addons.LevelSystem.functions.commands.commandLevel as commandLevel
+import addons.LevelSystem.functions.commands.commandRewardCreate as commandRewardCreate
+import addons.LevelSystem.functions.commands.commandRewardList as commandRewardList
+import addons.LevelSystem.functions.commands.commandRewardRemove as commandRewardRemove
+import addons.LevelSystem.functions.commands.commandSettingChannel as commandSettingChannel
 # Events
-import addons.levelSystem.functions.events.eventOnGuildJoin as eventOnGuildJoin
-import addons.levelSystem.functions.events.eventOnGuildRemove as eventOnGuildRemove
-import addons.levelSystem.functions.events.eventOnMemberJoin as eventOnMemberJoin
-import addons.levelSystem.functions.events.eventOnMemberRemove as eventOnMemberRemove
-import addons.levelSystem.functions.events.eventOnMessage as eventOnMessage
-import addons.levelSystem.functions.events.eventOnReady as eventOnReady
-import addons.levelSystem.functions.events.eventOnVoiceStateUpdate as eventOnVoiceStateUpdate
+import addons.LevelSystem.functions.events.eventOnGuildJoin as eventOnGuildJoin
+import addons.LevelSystem.functions.events.eventOnGuildRemove as eventOnGuildRemove
+import addons.LevelSystem.functions.events.eventOnMemberJoin as eventOnMemberJoin
+import addons.LevelSystem.functions.events.eventOnMemberRemove as eventOnMemberRemove
+import addons.LevelSystem.functions.events.eventOnMessage as eventOnMessage
+import addons.LevelSystem.functions.events.eventOnReady as eventOnReady
+import addons.LevelSystem.functions.events.eventOnVoiceStateUpdate as eventOnVoiceStateUpdate
 
 
 class LevelSystem(commands.Cog):

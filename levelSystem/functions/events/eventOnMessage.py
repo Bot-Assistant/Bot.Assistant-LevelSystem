@@ -1,5 +1,5 @@
-import addons.levelSystem.handlers.handlerUser as handlerUser
-import addons.levelSystem.handlers.handlerReward as handlerReward
+import addons.LevelSystem.handlers.handlerUser as handlerUser
+import addons.LevelSystem.handlers.handlerReward as handlerReward
 
 import services.serviceBot as serviceBot
 discord = serviceBot.classBot.getDiscord()
