@@ -1,11 +1,18 @@
 import addons.LevelSystem.handlers.handlerReward as handlerReward
 
+import settings.settingColors as settingColors
+import settings.settingThumbnail as settingThumbnail
+
 import services.serviceBot as serviceBot
 discord = serviceBot.classBot.getDiscord()
 
-import settings.settingColors as settingColors
-import discord
+
 async def getRewardList(ctx, level):
+
+    # PERMISSIONS CHECK
+    import addons.LevelSystem.functions.services.servicePermission as servicePermission
+    if await servicePermission.permissionCheck(ctx, "cmdRewardList") == False:
+        return
 
     if level is None:
         rewardLevelsDatabase = handlerReward.getRewardLevels(ctx.guild.id)

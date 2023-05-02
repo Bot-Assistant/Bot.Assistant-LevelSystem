@@ -1,16 +1,18 @@
-# Author: Ted.
-# Co-Author: Mr.Se6un
+# 𝗔𝗨𝗧𝗛𝗢𝗥: Ted.
+# 𝗖𝗢-𝗔𝗨𝗧𝗛𝗢𝗥: Mr.Se6un
 
+# 𝗘𝗫𝗧𝗘𝗥𝗡𝗔𝗟 𝗜𝗠𝗣𝗢𝗥𝗧
+# -
 
-# 𝗕𝗢𝗧 𝗔𝗦𝗦𝗜𝗦𝗧𝗔𝗡𝗧
+# 𝗕𝗢𝗧𝗔𝗦𝗦𝗜𝗦𝗧𝗔𝗡𝗧 𝗜𝗠𝗣𝗢𝗥𝗧𝗦
 # Services
 from services.serviceLogger import consoleLogger as Logger
-import services.serviceBot as serviceBot
-import services.servicePermissionCheck as servicePermissionCheck
+from services.serviceDiscordLogger import discordLogger as DiscordLogger
 # Settings
 from settings.settingBot import debug
 
-# Discord
+# 𝗕𝗢𝗧𝗔𝗦𝗦𝗜𝗦𝗧𝗔𝗡𝗧 𝗕𝗢𝗧 
+import services.serviceBot as serviceBot
 discord = serviceBot.classBot.getDiscord()
 discordCommands = serviceBot.classBot.getDiscordCommands()
 commands = serviceBot.classBot.getCommands()
@@ -18,16 +20,19 @@ bot = serviceBot.classBot.getBot()
 
 
 # 𝗔𝗗𝗗𝗢𝗡
+# Init file
 import addons.LevelSystem.init as init
 # Handlers
 import addons.LevelSystem.handlers.handlerDatabaseInit as handlerDatabaseInit
 import addons.LevelSystem.handlers.handlerReward as handlerReward
 # Commands
+import addons.LevelSystem.functions.commands.commandRequirements as commandRequirements
 import addons.LevelSystem.functions.commands.commandLevel as commandLevel
 import addons.LevelSystem.functions.commands.commandRewardCreate as commandRewardCreate
 import addons.LevelSystem.functions.commands.commandRewardList as commandRewardList
 import addons.LevelSystem.functions.commands.commandRewardRemove as commandRewardRemove
 import addons.LevelSystem.functions.commands.commandSettingChannel as commandSettingChannel
+import addons.LevelSystem.functions.commands.commandTop as commandTop
 # Events
 import addons.LevelSystem.functions.events.eventOnGuildJoin as eventOnGuildJoin
 import addons.LevelSystem.functions.events.eventOnGuildRemove as eventOnGuildRemove
@@ -103,10 +108,11 @@ class LevelSystem(commands.Cog):
     groupReward = groupLevelSystem.create_subgroup("reward", "Various commands to manage the level system")
     groupSettings = groupLevelSystem.create_subgroup("settings", "Various commands to manage the level system")
     
-    # Verify if the bot has the permissions
-    @groupLevelSystem.command(name="permissions", description="Check the permissions of the bot")
-    async def cmdSFXPermissions(self, ctx: commands.Context):
-        await servicePermissionCheck.permissionCheck(ctx, init.addonPermissions)
+    # Verify if the bot has the prerequisites permissions
+    @groupLevelSystem.command(name="requirements", description="Check the prerequisites permissions of the addon.")
+    async def cmdPermissions(self, ctx: commands.Context):
+        await DiscordLogger.info(ctx, init.cogName, ctx.author.name + " has used the requirements command.", str(ctx.command))
+        await commandRequirements.checkRequirements(ctx)
     
     # Command to get the level of a user
     @groupLevelSystem.command(name="level", description="Command to define the roles when users arrive.")
@@ -167,6 +173,14 @@ class LevelSystem(commands.Cog):
             required=True)
     ):
         await commandSettingChannel.setChannel(ctx, channel)
+
+    # Command to get the top 10 of the server
+    @groupLevelSystem.command(name="top", description="Command to define the roles when users arrive.")
+    async def cmdTop(
+        self,
+        ctx: discord.ApplicationContext
+    ):
+        await commandTop.getTop(ctx)
         
 
 def setup(bot):

@@ -2,7 +2,7 @@
 enableGithub = True
 author = "Ted-18"
 repository = "Bot.Assistant-LevelSystem"
-version = "1.0.0"
+version = "1.1.1"
 
 # To activate this addon
 cogEnabled = True
@@ -27,3 +27,26 @@ addonPermissions = [
     "manage_roles",
     "send_messages"
 ]
+
+commandPermissions = {
+    # Permission to check the addon's permissions
+    "cmdRequirements" : "discord.permission.manage_guild",
+
+    # Permission to get the level of a user
+    "cmdLevel" : "discord.permission.send_messages",
+
+    # Permission to create a reward
+    "cmdCreateReward" : "discord.permission.manage_roles",
+
+    # Permission to remove a reward
+    "cmdRemoveReward" : "discord.permission.manage_roles",
+
+    # Permission to list rewards
+    "cmdRewardList" : "discord.permission.manage_roles",
+
+    # Permission to set the channel of the level system messages
+    "cmdSettingChannel" : "discord.permission.manage_channels",
+
+    # Permission to get top users
+    "cmdTop" : "discord.permission.send_messages"
+}

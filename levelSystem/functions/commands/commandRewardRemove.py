@@ -1,12 +1,18 @@
 import addons.LevelSystem.handlers.handlerReward as handlerReward
 
 from settings.settingColors import *
+import settings.settingThumbnail as settingThumbnail
 
 import services.serviceBot as serviceBot
 discord = serviceBot.classBot.getDiscord()
 
 # Remove a reward 
 async def removeReward(ctx, level, role):
+
+    # PERMISSIONS CHECK
+    import addons.LevelSystem.functions.services.servicePermission as servicePermission
+    if await servicePermission.permissionCheck(ctx, "cmdRemoveReward") == False:
+        return
     
     # Get the role by name
     role = discord.utils.get(ctx.guild.roles, name=role)

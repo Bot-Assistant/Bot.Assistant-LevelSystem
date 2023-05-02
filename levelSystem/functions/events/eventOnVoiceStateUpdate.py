@@ -24,9 +24,10 @@ async def addXPVoice(member, before, after):
     elif before.channel != None and after.channel == None and before.afk != True or before.afk == False and after.afk == True:
 
         # Get the date from the database
-        timestamp = handlerUser.getTimestamp(member.guild.id, member.id)[0]
-
-        print(timestamp)
+        try:
+            timestamp = handlerUser.getTimestamp(member.guild.id, member.id)[0]
+        except:
+            return
 
         # If timestamp is None, return
         if timestamp[0] is None:

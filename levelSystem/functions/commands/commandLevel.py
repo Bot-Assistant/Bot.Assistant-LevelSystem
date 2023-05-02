@@ -1,12 +1,18 @@
 import addons.LevelSystem.handlers.handlerUser as handlerUser
 
 from settings.settingColors import *
+import settings.settingThumbnail as settingThumbnail
 
 import services.serviceBot as serviceBot
 discord = serviceBot.classBot.getDiscord()
 
 #Get the level and xp of a user
 async def getUserLevel(ctx, user):
+
+    # PERMISSIONS CHECK
+    import addons.LevelSystem.functions.services.servicePermission as servicePermission
+    if await servicePermission.permissionCheck(ctx, "cmdLevel") == False:
+        return
 
     # If no user is specified, the command author is used
     if user == None:

@@ -1,12 +1,18 @@
 import addons.LevelSystem.handlers.handlerReward as handlerReward
 
 from settings.settingColors import *
+import settings.settingThumbnail as settingThumbnail
 
 import services.serviceBot as serviceBot
 discord = serviceBot.classBot.getDiscord()
 
 # Create a reward
 async def createReward(ctx, level, role, actionType):
+
+    # PERMISSIONS CHECK
+    import addons.LevelSystem.functions.services.servicePermission as servicePermission
+    if await servicePermission.permissionCheck(ctx, "cmdCreateReward") == False:
+        return
 
     # Convert the action type to an integer
     if actionType == "Add role":
