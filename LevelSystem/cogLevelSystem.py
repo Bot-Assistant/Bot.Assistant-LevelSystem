@@ -104,9 +104,9 @@ class LevelSystem(commands.Cog):
 
 
     # 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦
-    groupLevelSystem = discordCommands.SlashCommandGroup(init.cogName, "Various commands to manage the level system")
-    groupReward = groupLevelSystem.create_subgroup("reward", "Various commands to manage the level system")
-    groupSettings = groupLevelSystem.create_subgroup("settings", "Various commands to manage the level system")
+    groupLevelSystem = discordCommands.SlashCommandGroup(init.cogName, "🔶 Group of commands to manage the level system.")
+    groupReward = groupLevelSystem.create_subgroup("reward", "🔶 Group of commands to manage the rewards of the level system.")
+    groupSettings = groupLevelSystem.create_subgroup("settings", "🔶 Group of commands to manage the settings of the level system.")
     
     # Verify if the bot has the prerequisites permissions
     @groupLevelSystem.command(name="requirements", description="Check the prerequisites permissions of the addon.")
@@ -115,7 +115,7 @@ class LevelSystem(commands.Cog):
         await commandRequirements.checkRequirements(ctx)
     
     # Command to get the level of a user
-    @groupLevelSystem.command(name="level", description="Command to define the roles when users arrive.")
+    @groupLevelSystem.command(name="level", description="Command to get the level of a user.")
     async def cmdLevel(
         self,
         ctx: discord.ApplicationContext,
@@ -126,7 +126,7 @@ class LevelSystem(commands.Cog):
         await commandLevel.getUserLevel(ctx, user)
 
     # Command to create a reward
-    @groupReward.command(name="create", description="Command to define the roles when users arrive.")
+    @groupReward.command(name="create", description="Command to create a reward.")
     async def cmdCreate(
         self,
         ctx: discord.ApplicationContext,
@@ -144,7 +144,7 @@ class LevelSystem(commands.Cog):
         await commandRewardCreate.createReward(ctx, level, role, type)
 
     # Command to remove a reward
-    @groupReward.command(name="remove", description="Command to define the roles when users arrive.")
+    @groupReward.command(name="remove", description="Command to remove a reward.")
     async def cmdRemove(
         self,
         ctx: discord.ApplicationContext,
@@ -155,7 +155,7 @@ class LevelSystem(commands.Cog):
         await commandRewardRemove.removeReward(ctx, level, role)
 
     # Command to list rewards
-    @groupReward.command(name="list", description="Command to define the roles when users arrive.")
+    @groupReward.command(name="list", description="Command to get the list of rewards.")
     async def cmdList(
         self,
         ctx: discord.ApplicationContext,
@@ -164,7 +164,7 @@ class LevelSystem(commands.Cog):
         await commandRewardList.getRewardList(ctx, level)
 
     # Command to define the channel for the level system
-    @groupSettings.command(name="channel", description="Command to define the roles when users arrive.")
+    @groupSettings.command(name="channel", description="Command to define the channel for the level system.")
     async def cmdChannel(
         self,
         ctx: discord.ApplicationContext,
@@ -175,7 +175,7 @@ class LevelSystem(commands.Cog):
         await commandSettingChannel.setChannel(ctx, channel)
 
     # Command to get the top 10 of the server
-    @groupLevelSystem.command(name="top", description="Command to define the roles when users arrive.")
+    @groupLevelSystem.command(name="top", description="Command to get the top 10 of the server.")
     async def cmdTop(
         self,
         ctx: discord.ApplicationContext
