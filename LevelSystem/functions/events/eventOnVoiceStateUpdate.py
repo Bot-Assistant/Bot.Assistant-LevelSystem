@@ -25,19 +25,25 @@ async def addXPVoice(member, before, after):
 
         # Get the date from the database
         try:
-            timestamp = handlerUser.getTimestamp(member.guild.id, member.id)[0]
+            timestampDB = handlerUser.getTimestamp(member.guild.id, member.id)[0]
         except:
             return
 
         # If timestamp is None, return
-        if timestamp[0] is None:
+        if timestampDB[0] is None:
             return
+
+        # If timestamp is a string, convert it to datetime
+        if isinstance(timestampDB[0], str):
+            timestampDate = datetime.datetime.strptime(timestampDB[0], "%Y-%m-%d %H:%M:%S.%f")
+        else:
+            timestampDate = timestampDB[0]
 
         # Remove the date from the database
         handlerUser.addTimestamp(member.guild.id, member.id, None)
 
         # Calculate the time difference to get the xp earned
-        timeDifference = datetime.datetime.now() - timestamp[0]
+        timeDifference = datetime.datetime.now() - timestampDate
         xp = timeDifference.seconds / 60
         xp = round(xp)
 
