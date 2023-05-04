@@ -1,7 +1,10 @@
 import datetime
+
 import addons.LevelSystem.handlers.handlerUser as handlerUser
 import addons.LevelSystem.handlers.handlerReward as handlerReward
 import addons.LevelSystem.handlers.handlerSettings as handlerSettings
+
+from services.serviceDiscordLogger import discordLogger as DiscordLogger
 
 import services.serviceBot as serviceBot
 discord = serviceBot.classBot.getDiscord()
@@ -81,11 +84,15 @@ async def addXPVoice(member, before, after):
             # Check if the user has a reward for leveling up
             rewardLevelsDatabase = handlerReward.getRewardRoles(member.guild.id, newUserLevel)
 
-            # Check if the bot has permissions to manage roles
-            if channel.guild.me.guild_permissions.manage_roles == False:
-                embed.add_field(name="Error", value="The bot does not have permissions to manage roles")
-                await channel.send(embed=embed)
-                return
+            if channel is None:
+                DiscordLogger.error(f"LevelSystem: You need to set a channel for the level system. Use the command `/levelsystem settings channel` to set a channel.")
+            
+            else:
+                # Check if the bot has permissions to manage roles
+                if channel.guild.me.guild_permissions.manage_roles == False:
+                    embed.add_field(name="Error", value="The bot does not have permissions to manage roles")
+                    await channel.send(embed=embed)
+                    return
 
 
             # Make a list of the roles rewards

@@ -2,7 +2,7 @@
 enableGithub = True
 author = "Ted-18"
 repository = "Bot.Assistant-LevelSystem"
-version = "1.3.0"
+version = "1.3.1"
 
 # To activate this addon
 cogEnabled = True
