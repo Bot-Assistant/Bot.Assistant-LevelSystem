@@ -1,6 +1,6 @@
 import services.serviceDatabase as serviceDatabase      
 
-from services.serviceLogger import consoleLogger as Logger
+from services.serviceLogger import Logger
 from settings.settingBot import debug
 
 
@@ -13,8 +13,7 @@ def addReward(serverID, level, roleID, actionType):
                     """
     requestSettings = (serverID, level, roleID, actionType,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][ADD] Adding a reward to the DB " + str(serverID) + " " + str(level) + " " + str(roleID) + " " + str(actionType))
+        Logger.debug("[HANDLER][LEVELSYSTEM][ADD] Adding a reward to the DB " + str(serverID) + " " + str(level) + " " + str(roleID) + " " + str(actionType))
             
         serviceDatabase.makeRequest(requestFormat, requestSettings)
 
@@ -30,8 +29,7 @@ def deleteReward(serverID, level, roleID):
                     """
     requestSettings = (serverID, level, roleID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][DELETE] Deleting a reward from the DB " + str(serverID) + " " + str(level) + " " + str(roleID))
+        Logger.debug("[HANDLER][LEVELSYSTEM][DELETE] Deleting a reward from the DB " + str(serverID) + " " + str(level) + " " + str(roleID))
             
         serviceDatabase.makeRequest(requestFormat, requestSettings)
         
@@ -48,8 +46,7 @@ def getAllRewards(serverID):
                     """
     requestSettings = (serverID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting rewards from the DB " + str(serverID))
+        Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting rewards from the DB " + str(serverID))
 
         return serviceDatabase.getInfoRequest(requestFormat, requestSettings)
         
@@ -66,8 +63,7 @@ def getRewardLevels(serverID):
                     """
     requestSettings = (serverID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting all rewards levels from the DB " + str(serverID))
+        Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting all rewards levels from the DB " + str(serverID))
 
         return serviceDatabase.getInfoRequest(requestFormat, requestSettings)
         
@@ -84,8 +80,7 @@ def getRewardRoles(serverID, level):
                     """
     requestSettings = (serverID, level,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting all rewards roles from a level from the DB " + str(serverID) + " " + str(level))
+        Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting all rewards roles from a level from the DB " + str(serverID) + " " + str(level))
 
         return serviceDatabase.getInfoRequest(requestFormat, requestSettings)
         

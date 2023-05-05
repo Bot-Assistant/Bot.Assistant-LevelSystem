@@ -6,7 +6,7 @@
 
 # 𝗕𝗢𝗧𝗔𝗦𝗦𝗜𝗦𝗧𝗔𝗡𝗧 𝗜𝗠𝗣𝗢𝗥𝗧𝗦
 # Services
-from services.serviceLogger import consoleLogger as Logger
+from services.serviceLogger import Logger
 from services.serviceDiscordLogger import discordLogger as DiscordLogger
 # Settings
 from settings.settingBot import debug
@@ -184,7 +184,7 @@ class LevelSystem(commands.Cog):
         
 
 def setup(bot):
-    if debug: Logger.debug("Loading Join Role")
+    Logger.debug("Loading Join Role")
     handlerDatabaseInit.databaseInit()
     bot.add_cog(LevelSystem(bot))
     

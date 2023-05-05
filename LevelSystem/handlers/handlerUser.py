@@ -1,6 +1,6 @@
 import services.serviceDatabase as serviceDatabase      
 
-from services.serviceLogger import consoleLogger as Logger
+from services.serviceLogger import Logger
 from settings.settingBot import debug
 
 
@@ -13,8 +13,7 @@ def addUser(serverID, userID):
                     """
     requestSettings = (serverID, userID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][ADD] Adding a user to the DB " + str(serverID) + " " + str(userID))
+        Logger.debug("[HANDLER][LEVELSYSTEM][ADD] Adding a user to the DB " + str(serverID) + " " + str(userID))
             
         serviceDatabase.makeRequest(requestFormat, requestSettings)
 
@@ -30,8 +29,7 @@ def deleteUser(serverID, userID):
                     """
     requestSettings = (serverID, userID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][DELETE] Deleting a user from the DB " + str(userID))
+        Logger.debug("[HANDLER][LEVELSYSTEM][DELETE] Deleting a user from the DB " + str(userID))
             
         serviceDatabase.makeRequest(requestFormat, requestSettings)
         
@@ -48,8 +46,7 @@ def getAllUsers(serverID):
                     """
     requestSettings = (serverID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting users from the DB " + str(serverID))
+        Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting users from the DB " + str(serverID))
 
         return serviceDatabase.getInfoRequest(requestFormat, requestSettings)
         
@@ -66,8 +63,7 @@ def getUser(serverID, userID):
                     """
     requestSettings = (serverID, userID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting a user from the DB " + str(serverID) + " " + str(userID))
+        Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting a user from the DB " + str(serverID) + " " + str(userID))
 
         return serviceDatabase.getInfoRequest(requestFormat, requestSettings)
         
@@ -84,8 +80,7 @@ def updateUserLevel(serverID, userID, level):
                     """
     requestSettings = (level, serverID, userID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][UPDATE] Updating a user level " + str(serverID) + " " + str(userID) + " " + str(level))
+        Logger.debug("[HANDLER][LEVELSYSTEM][UPDATE] Updating a user level " + str(serverID) + " " + str(userID) + " " + str(level))
             
         serviceDatabase.makeRequest(requestFormat, requestSettings)
         
@@ -102,8 +97,7 @@ def updateUserXP(serverID, userID, xp):
                     """
     requestSettings = (xp, serverID, userID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][UPDATE] Updating a user xp " + str(serverID) + " " + str(userID) + " " + str(xp))
+        Logger.debug("[HANDLER][LEVELSYSTEM][UPDATE] Updating a user xp " + str(serverID) + " " + str(userID) + " " + str(xp))
             
         serviceDatabase.makeRequest(requestFormat, requestSettings)
         
@@ -120,8 +114,7 @@ def addTimestamp(serverID, userID, timestamp):
                     """
     requestSettings = (timestamp, serverID, userID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][UPDATE] Updating a user timestamp " + str(serverID) + " " + str(userID) + " " + str(timestamp))
+        Logger.debug("[HANDLER][LEVELSYSTEM][UPDATE] Updating a user timestamp " + str(serverID) + " " + str(userID) + " " + str(timestamp))
             
         serviceDatabase.makeRequest(requestFormat, requestSettings)
         
@@ -138,8 +131,7 @@ def getTimestamp(serverID, userID):
                     """
     requestSettings = (serverID, userID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting a user timestamp " + str(serverID) + " " + str(userID))
+        Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting a user timestamp " + str(serverID) + " " + str(userID))
             
         return serviceDatabase.getInfoRequest(requestFormat, requestSettings)
         

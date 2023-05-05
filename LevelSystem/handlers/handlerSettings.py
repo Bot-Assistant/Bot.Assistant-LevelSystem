@@ -1,6 +1,6 @@
 import services.serviceDatabase as serviceDatabase      
 
-from services.serviceLogger import consoleLogger as Logger
+from services.serviceLogger import Logger
 from settings.settingBot import debug
 
 # Add server to the database
@@ -11,8 +11,7 @@ def addServer(serverID):
                     """
     requestSettings = (serverID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][ADD] Adding server to the DB " + str(serverID))
+        Logger.debug("[HANDLER][LEVELSYSTEM][ADD] Adding server to the DB " + str(serverID))
             
         serviceDatabase.makeRequest(requestFormat, requestSettings)
         
@@ -28,8 +27,7 @@ def deleteServer(serverID):
                     """
     requestSettings = (serverID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][DEL] Deleting server from the DB " + str(serverID))
+        Logger.debug("[HANDLER][LEVELSYSTEM][DEL] Deleting server from the DB " + str(serverID))
             
         serviceDatabase.makeRequest(requestFormat, requestSettings)
         
@@ -46,8 +44,7 @@ def getServer(serverID):
                     """
     requestSettings = (serverID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting server from the DB " + str(serverID))
+        Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting server from the DB " + str(serverID))
             
         return serviceDatabase.getInfoRequest(requestFormat, requestSettings)
         
@@ -63,8 +60,7 @@ def getAllServers():
                     """
     requestSettings = ()
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting all servers from the DB")
+        Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting all servers from the DB")
             
         return serviceDatabase.getInfoRequest(requestFormat, requestSettings)
         
@@ -81,8 +77,7 @@ def setChannelID(serverID, channelID):
                     """
     requestSettings = (channelID, serverID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][SET] Setting channelID to the DB " + str(serverID) + " " + str(channelID))
+        Logger.debug("[HANDLER][LEVELSYSTEM][SET] Setting channelID to the DB " + str(serverID) + " " + str(channelID))
             
         serviceDatabase.makeRequest(requestFormat, requestSettings)
         
@@ -99,8 +94,7 @@ def getChannelID(serverID):
                     """
     requestSettings = (serverID,)
     try:
-        if debug == True:
-            Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting channelID from the DB " + str(serverID))
+        Logger.debug("[HANDLER][LEVELSYSTEM][GET] Getting channelID from the DB " + str(serverID))
             
         return serviceDatabase.getInfoRequest(requestFormat, requestSettings)
         
