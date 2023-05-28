@@ -84,10 +84,8 @@ async def addXPVoice(member, before, after):
             # Check if the user has a reward for leveling up
             rewardLevelsDatabase = handlerReward.getRewardRoles(member.guild.id, newUserLevel)
 
-            if channel is None:
-                DiscordLogger.error(f"LevelSystem: You need to set a channel for the level system. Use the command `/levelsystem settings channel` to set a channel.")
-            
-            else:
+
+            if channel != None:
                 # Check if the bot has permissions to manage roles
                 if channel.guild.me.guild_permissions.manage_roles == False:
                     embed.add_field(name="Error", value="The bot does not have permissions to manage roles")
@@ -113,7 +111,8 @@ async def addXPVoice(member, before, after):
                     await member.remove_roles(rewardRole[0])
                     embed.add_field(name="Removed Role", value=f"{rewardRole[0].mention}")
 
-            await channel.send(embed=embed)
+            if channel != None:
+                await channel.send(embed=embed)
         
         else:
             handlerUser.updateUserXP(member.guild.id, member.id, newLevelXP)
